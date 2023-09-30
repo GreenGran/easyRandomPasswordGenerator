@@ -2,6 +2,9 @@
 const slider = document.getElementById('mySlider');
 const sliderValueDisplay = document.getElementById('sliderValue');
 let specialSymbols = true;
+var passwordField = document.getElementById("passwordField");
+var fillButton = document.getElementById("fillButton");
+let finalPassword;
 // Update the displayed value when the slider value changes
 slider.addEventListener('input', function() {
   const sliderValue = slider.value;
@@ -33,9 +36,9 @@ function genarateRandomPassword(length){
        
     }
  
-   
+    finalPassword = password
     return password;
-
+    
 
 }
 
@@ -50,7 +53,7 @@ function genarateRandomPassword(length){
         const textFiePassword = document.getElementById('textFilePassword');
         const name = textFieName.value;
         const id = textField.value;
-        const Password = genarateRandomPassword(slider.value);
+        const Password = finalPassword
         // Content of the text file
         const textContent = '\n id:'+id+'\n\n password:'+Password;
 
@@ -84,4 +87,12 @@ function genarateRandomPassword(length){
      toggleButton.textContent = specialSymbols ? 'On' : 'Off';
      toggleButton.classList.toggle('on', specialSymbols);
      toggleButton.classList.toggle('off', !specialSymbols);
+ });
+
+
+
+ // Add an event listener to the button
+ fillButton.addEventListener("click", function() {
+     // Fill the text field with "hello" when the button is clicked
+     passwordField.value = genarateRandomPassword(slider.value);
  });

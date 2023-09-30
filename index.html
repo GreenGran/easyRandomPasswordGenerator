@@ -7,18 +7,19 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <div>
+    <div style="display: block" class="centered-content">
+           <div>
         <h3 >file name</h3>
         <input type="text" id="textFileName" placeholder="Enter file name...">
     </div>
     <div>
-        <h3 >id:</h3>
+        <h3 >id</h3>
         <input type="text" id="textFileId" placeholder="Enter file id...">
     </div>
     <div>
         <h3 >password</h3>
         <div>
-            <div style="display: block" class="centered-content" >
+            <div  >
                 <p>Special Symbols</p>
                 <button class="on-off-button on" id="toggleButton">on</button>
             </div>
@@ -29,9 +30,14 @@
     <div class="slider-container">
         <input type="range" min="6" max="32" value="12" class="slider" id="mySlider">
         <p>Value: <span id="sliderValue">6</span></p>
+        <button id="downloadButton">Download Text File</button>
+        <button id="fillButton">generate password</button>
+
       </div>
+      <input type="text" id="passwordField" readonly>
+    </div>
+ 
     
-    <button id="downloadButton">Download Text File</button>
     <script src="script.js"></script>
 </body>
 </html>
