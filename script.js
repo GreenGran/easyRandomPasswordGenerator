@@ -5,6 +5,21 @@ let specialSymbols = true;
 var passwordField = document.getElementById("passwordField");
 var fillButton = document.getElementById("fillButton");
 let finalPassword;
+
+
+
+// Create a new Date object
+var currentDate = new Date();
+
+// Get the current time components
+var hours = currentDate.getHours();
+var minutes = currentDate.getMinutes();
+var seconds = currentDate.getSeconds();
+var year = currentDate.getFullYear(); // Get the year (e.g., 2023)
+var month = currentDate.getMonth() + 1; // Get the month (0-11, so add 1 to get 1-12)
+var day = currentDate.getDate(); // Get the day of the month (1-31)
+
+
 // Update the displayed value when the slider value changes
 slider.addEventListener('input', function() {
   const sliderValue = slider.value;
@@ -16,6 +31,17 @@ sliderValueDisplay.textContent = slider.value;
    
 
 function genarateRandomPassword(length){
+    if( downloadButton.disabled === true){
+        downloadButton.classList.toggle("download-button-disable");
+        downloadButton.classList.toggle("download-button");
+        fillButton.textContent= "↻";
+      
+    }
+    downloadButton.disabled = false;
+
+    
+   
+    
    
    let password =""
       
@@ -51,12 +77,14 @@ function genarateRandomPassword(length){
         const textFieName = document.getElementById('textFileName');
         const textField = document.getElementById('textFileId');
         const textFiePassword = document.getElementById('textFilePassword');
-        const name = textFieName.value;
+        let name = textFieName.value;
         const id = textField.value;
         const Password = finalPassword
         // Content of the text file
-        const textContent = '\n id:'+id+'\n\n password:'+Password;
-
+        const textContent = '\n id:'+id+'\n\n password:\n'+Password+"\n\n\n\n ***time of creation*** \n    day/month/year \n    date:"+day+":"+month+":"+year+"\n    time:"+hours+":"+minutes+":"+seconds;
+        if(name == ""){
+            name = "NoName"
+        }
         // Create a Blob (Binary Large Object) containing the text
         const blob = new Blob([textContent], { type: 'text/plain' });
 
@@ -66,7 +94,7 @@ function genarateRandomPassword(length){
         // Create a download link
         const a = document.createElement('a');
         a.href = url;
-        a.download = name +'.txt'; // Set the desired file name
+        a.download = name +"_"+year+"-"+month+"-"+day+'.txt'; // Set the desired file name
 
         // Simulate a click on the download link
         a.click();
@@ -96,3 +124,49 @@ function genarateRandomPassword(length){
      // Fill the text field with "hello" when the button is clicked
      passwordField.value = genarateRandomPassword(slider.value);
  });
+
+ function copyToClipboard() {
+    
+    
+    // Select the text inside the text field
+    passwordField.select();
+
+    // Copy the selected text to the clipboard
+    document.execCommand("copy");
+
+    // Deselect the text field to avoid visual confusion
+    passwordField.selectionEnd = passwordField.selectionStart;
+    showMessage()
+}
+
+
+
+
+function showMessage() {
+    // Create a new message element
+    var message = document.createElement("div");
+    message.className = "message";
+    if(finalPassword != undefined){
+        message.textContent = finalPassword+" copyed to clipboard";
+    }else{
+        message.textContent = "please press the play button before copying to clipboard"
+       
+    }
+
+    // Add the message to the message container
+    var messageContainer = document.getElementById("message-container");
+    messageContainer.appendChild(message);
+
+    // Show the message
+    message.style.display = "block";
+
+    // Remove the message after a certain duration (e.g., 1.5 seconds)
+    setTimeout(function() {
+        message.style.display = "none";
+        // Remove the message element from the container
+        messageContainer.removeChild(message);
+    }, 1300); // 1500 milliseconds (1.5 seconds)
+}
+
+
+

@@ -1,3 +1,28 @@
+body{
+    margin: 0;
+    background-color: #F4F4F4;
+    
+}
+.info-text{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    display: inline-block;
+    font-size: 2rem;
+
+}
+.file-info{
+    background-color: #cfcfcf;
+    margin-top: 0px;
+}
+.password-text-field{
+    background-color:#333 ;
+    width: 80%;
+    height: 100%;
+    text-align: center;
+    color: #ffffff;
+    padding: 0;
+    font-size: 3rem;
+}
 .slider-container {
     text-align: center;
     margin-top: 20px;
@@ -42,3 +67,168 @@
   .centered-content {
     text-align: center; /* Optionally center text content within the child div */
   }
+  header{
+    background-color: #ff3333;
+  
+  }
+  .on-top{
+    top: 0; /* Stick to the top of the viewport */
+    background-color: #333; /* Background color of the header */
+    color: #CCCCCC; /* Text color of the header */
+    padding: 10px; /* Add padding for spacing */
+    z-index: 100; /* Ensure it appears on top of other content */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  .create-password {
+    box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+	background-color:#768d87;
+	border-radius:5px;
+	border:1px solid #566963;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:3rem;
+	font-weight:bold;
+	padding:0px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #2b665e;
+    height: 100%;
+    width: 80px;
+}
+.create-password {
+	background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+	background-color:#6c7c7c;
+}
+.create-password {
+	position:relative;
+	top:1px;
+}
+
+.download-button {
+    margin-top: 2%;
+	box-shadow:inset 0px 1px 0px 0px #caefab;
+	background:linear-gradient(to bottom, #77d42a 5%, #5cb811 100%);
+	background-color:#77d42a;
+	border-radius:6px;
+	border:1px solid #268a16;
+	display:inline-block;
+	cursor:pointer;
+	color:#306108;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #aade7c;
+}
+.download-button:hover {
+	background:linear-gradient(to bottom, #5cb811 5%, #77d42a 100%);
+	background-color:#5cb811;
+}
+.download-button:active {
+	position:relative;
+	top:1px;
+}
+.copy-to {
+	box-shadow:inset 0px 1px 0px 0px #a6827e;
+	background:linear-gradient(to bottom, #7d5d3b 5%, #634b30 100%);
+	background-color:#7d5d3b;
+	border-radius:6px;
+	border:1px solid #54381e;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #4d3534;
+}
+.copy-to:hover {
+	background:linear-gradient(to bottom, #634b30 5%, #7d5d3b 100%);
+	background-color:#634b30;
+}
+.copy-to:active {
+	position:relative;
+	top:1px;
+}
+.download-button-disable {
+    text-decoration: line-through;
+    margin-top: 2%;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ededed 5%, #ededed 100%);
+	background-color:#ededed;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#777777;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	
+	text-shadow:0px 1px 0px #ffffff;
+}
+.download-button-disable:hover {
+	background:linear-gradient(to bottom, #ededed 5%, #ededed 100%);
+	background-color:#ededed;
+}
+.download-button-disable:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+
+
+
+
+            
+        
+
+        /* Styles for the message container */
+.message{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 1);
+    color: rgb(231, 231, 231);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    animation: fadeIn 0.5s, fadeOut 0.5s 1s;
+    z-index: 9999; /* Ensure it's the topmost element */
+}
+
+/* Keyframe animations for fading in and out */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+.container {
+    text-align: center; /* Optional: To center align the fields */
+}
+

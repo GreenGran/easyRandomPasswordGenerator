@@ -3,24 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text File Downloader</title>
+    <title>yoni's password generator</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
+    <header class="on-top">
+        <h1 style="margin: 0;">yoni's super easy password generator!</h1>
+    </header>
     <div style="display: block" class="centered-content">
-           <div>
-        <h3 >file name</h3>
-        <input type="text" id="textFileName" placeholder="Enter file name...">
+        <div class="file-info">
+            <h2 style="font-size: 2.5rem;margin-top: 0;padding-top: 2%;margin-bottom: 0;">file info</h2>
+           <div class="container">
+        <h4  class="info-text">file name:</h4>
+        <input style="margin-right: 2%;height: 30px;" type="text" id="textFileName" placeholder="Enter file name...">
+        <h4 class="info-text" >id:</h4>
+        <input  style="height: 30px;" type="text" id="textFileId" placeholder="Enter file id...">
     </div>
     <div>
-        <h3 >id</h3>
-        <input type="text" id="textFileId" placeholder="Enter file id...">
+       
     </div>
+</div>
     <div>
-        <h3 >password</h3>
+        <h3 style="font-size: 2.5rem; margin: 2%;">password setting</h3>
         <div>
-            <div  >
-                <p>Special Symbols</p>
+            <div >
+                <h2>Special Symbols</h2>
                 <button class="on-off-button on" id="toggleButton">on</button>
             </div>
         </div>
@@ -28,15 +35,27 @@
 
     </div>
     <div class="slider-container">
+        <h3>number of characters: <span id="sliderValue">6</span></h3>
         <input type="range" min="6" max="32" value="12" class="slider" id="mySlider">
-        <p>Value: <span id="sliderValue">6</span></p>
-        <button id="downloadButton">Download Text File</button>
-        <button id="fillButton">generate password</button>
+        
+       
+        
 
       </div>
-      <input type="text" id="passwordField" readonly>
+      <div style=" height: 100px;">
+      <input type="text" id="passwordField" class="password-text-field" readonly >
+      <button id="fillButton" class="create-password">&#9654;</button>
+      
     </div>
- 
+    </div>
+    <div style="display: block" class="centered-content">
+        <button id="downloadButton" disabled="true" class="download-button-disable">Download Text File</button>
+        <button  class="copy-to" onclick="copyToClipboard()">Copy 📋</button>
+    </div>
+
+    <div id="message-container"></div>
+
+    
     
     <script src="script.js"></script>
 </body>
