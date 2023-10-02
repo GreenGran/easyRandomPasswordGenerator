@@ -62,11 +62,48 @@ function genarateRandomPassword(length){
        
     }
  
+    
+    if (hasNumbers(password)) {
+        console.log("The string contains numbers:"+password );
+    } else {
+
+        while(!hasNumbers(password)){
+            console.log("The string does not contain numbers:"+password);
+            password =""
+          
+            for (let index = 1; index <= length; index++) {
+                    let newChar = Math.floor(Math.random() * (126 - 33 + 1)) + 33
+                    if(!specialSymbols)
+                    if ((newChar >= 48 && newChar <= 57) ||   // Digits 0-9
+                    (newChar >= 65 && newChar <= 90) ||   // Uppercase letters A-Z
+                    (newChar >= 97 && newChar <= 122)) {  // Lowercase letters a-z
+                    password += String.fromCharCode(newChar);
+                    }else{
+                        index--;
+                    }
+                    else{
+                        password += String.fromCharCode(newChar);
+                    }
+                
+             }
+    }
+ 
+    }
+
+
+    
     finalPassword = password
-    return password;
+
+    return finalPassword;
     
 
 }
+
+function hasNumbers(inputString) {
+    var regex = /\d/;
+    return regex.test(inputString);
+}
+
 
 
     const downloadButton = document.getElementById('downloadButton');
