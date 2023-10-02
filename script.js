@@ -62,33 +62,62 @@ function genarateRandomPassword(length){
        
     }
  
-    
-    if (hasNumbers(password)) {
-        console.log("The string contains numbers:"+password );
-    } else {
 
-        while(!hasNumbers(password)){
-            console.log("The string does not contain numbers:"+password);
-            password =""
-          
-            for (let index = 1; index <= length; index++) {
-                    let newChar = Math.floor(Math.random() * (126 - 33 + 1)) + 33
-                    if(!specialSymbols)
-                    if ((newChar >= 48 && newChar <= 57) ||   // Digits 0-9
-                    (newChar >= 65 && newChar <= 90) ||   // Uppercase letters A-Z
-                    (newChar >= 97 && newChar <= 122)) {  // Lowercase letters a-z
-                    password += String.fromCharCode(newChar);
-                    }else{
-                        index--;
-                    }
-                    else{
+if(!specialSymbols){
+    //redos the password if it does not caintain atleast 1 number 
+    if (hasNumbers(password)) {
+        
+    } else {
+     
+            while(!hasNumbers(password)){
+                console.log("The string does not contain numbers:"+password);
+                password =""
+              
+                for (let index = 1; index <= length; index++) {
+                        let newChar = Math.floor(Math.random() * (126 - 33 + 1)) + 33
+                        if(!specialSymbols)
+                        if ((newChar >= 48 && newChar <= 57) ||   // Digits 0-9
+                        (newChar >= 65 && newChar <= 90) ||   // Uppercase letters A-Z
+                        (newChar >= 97 && newChar <= 122)) {  // Lowercase letters a-z
                         password += String.fromCharCode(newChar);
-                    }
+                        }else{
+                            index--;
+                        }
+                        else{
+                            password += String.fromCharCode(newChar);
+                        }
+                    
+                 }
+        }
+    }
+
+}else{
+    
+    //redos the password if it does not caintain atleast 1 number and 1 special char
+    while(!hasNumbers(password) || !hasSpecialCharacters(password)){
+       
+        password =""
+      
+        for (let index = 1; index <= length; index++) {
+                let newChar = Math.floor(Math.random() * (126 - 33 + 1)) + 33
+                if(!specialSymbols)
+                if ((newChar >= 48 && newChar <= 57) ||   // Digits 0-9
+                (newChar >= 65 && newChar <= 90) ||   // Uppercase letters A-Z
+                (newChar >= 97 && newChar <= 122)) {  // Lowercase letters a-z
+                password += String.fromCharCode(newChar);
+                }else{
+                    index--;
+                }
+                else{
+                    password += String.fromCharCode(newChar);
+                }
                 
-             }
+         }
+        
     }
- 
-    }
+}
+
+
 
 
     
@@ -104,7 +133,10 @@ function hasNumbers(inputString) {
     return regex.test(inputString);
 }
 
-
+function hasSpecialCharacters(inputString) {
+    var regex = /[^a-zA-Z0-9]/; // Matches any character that is not alphanumeric
+    return regex.test(inputString);
+}
 
     const downloadButton = document.getElementById('downloadButton');
   
